@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en" xlmns:th="http://www.thymeleaf.org">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+        <link rel="stylesheet" href="fonts/icomoon/style.css">
+        <link rel="stylesheet" href="css/owl.carousel.min.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+        <link rel="stylesheet" type="text/css" th:href="@{/vendor/bootstrap/css/bootstrap.min.css}">
+        <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}">
+    
+        <script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
+        <script th:src="@{/vendor/jquery/jquery-3.2.1.min.js}"></script>
+        <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+        <script th:src="@{/js/main.js}"></script>
+    
+        <title>Electric City Home</title>
+        <!-- Typing animation -->
+        <style>
+          .hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+          }
+        
+          .typewriter {
+            font-size: 3rem;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 0.2em solid;
+          }
+        
+          #typewriter1 {
+            animation: typing1 4s steps(40, end), blink-caret 0.75s step-end infinite;
+          }
+        
+          #typewriter2 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            max-width: 600px;
+            animation: typing2 4s steps(40, end), blink-caret 0.75s step-end infinite;
+          }
+        
+          .hero {
+            position: relative;
+            overflow: hidden;
+          }
+          @keyframes typing1 {
+            from {
+              width: 0;
+            }
+            to {
+              width: 100%;
+            }
+          }
+        
+          @keyframes typing2 {
+            0% {
+              width: 0;
+            }
+            100% {
+              width: 100%;
+            }
+          }
+        
+          @keyframes blink-caret {
+            from,
+            to {
+              border-color: transparent;
+            }
+            50% {
+              border-color: white;
+            }
+          }
+        </style>    
+        <style>
+            .carousel-nav {
+                justify-content: space-between;
+                width: 100%;
+                position: absolute;
+                top: 50;
+                left: 0;
+                z-index: 10;
+            }
+        </style>
+        <!-- Add the new CSS styles -->
+        <style>
+          .media-29101 {
+            display: flex;
+            flex-wrap: nowrap;
+          }
+
+          .media-29101 .img {
+            flex: 1;
+            max-width: 50%;
+          }
+
+          .media-29101 .text {
+            flex: 1;
+            max-width: 50%;
+            padding-left: 20px;
+          }
+        </style>
+
+        <!-- Add watermark style -->
+        <style>
+          .watermark {
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 400;
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            padding: 5px 10px;
+            font-size: 14px;
+            color: #080808;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 3px;
+          }
+        </style>
+      </head>
+  <body>
+    <!-- (Keep your site-mobile-menu and header sections as-is) -->
+    <div class="site-mobile-menu">
+        <div class="site-mobile-menu-header">
+          <div class="site-mobile-menu-close mt-3">
+            <span class="icon-close2 js-menu-toggle"></span>
+          </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+      </div>
+      
+      <header class="site-navbar" role="banner">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-11 col-xl-2">
+              <h1 class="mb-0 site-logo"><a th:href="@{/}" class="text-white mb-0">Electric City</a></h1>
+            </div>
+            <div class="col-12 col-md-10 d-none d-xl-block">
+              <nav class="site-navigation position-relative text-right" role="navigation">
+                <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
+                  <li class="active"><a th:href="@{/}"><span>Home</span></a></li>
+                  <li class="has-children">
+                    <!-- Change this line for dropdown -->
+                    <!-- Change this line for dropdown -->
+                    <a href="#"><span>For Investors</span></a>
+                    <ul class="dropdown arrow-top">
+                      <li><a th:href="@{/menu_one}">Context Analysis</a></li>
+                      <li><a th:href="@{/menu_two}">Business Model</a></li>
+                      <li><a th:href="@{/menu_three}">Advertisements</a></li>
+                      <li><a th:href="@{/menu_four}">Accounting</a></li>
+                      </ul>
+                    </li>
+                    <li><a th:href="@{/users}" href="#"><span>Listings</span></a></li>
+                    <li><a th:href="@{/about}"><span>About</span></a></li>
+  
+                    <!-- Show 'Register' and 'Login' buttons when the user is not logged in -->
+                    <li th:unless="${#request.userPrincipal}" ><a th:href="@{/register}" href="#"><span>Register</span></a></li>
+                    <li th:unless="${#request.userPrincipal}" ><a th:href="@{/login}" href="#"><span>Login</span></a></li>
+  
+                    <!-- Show the user's first name and 'Logout' button when the user is logged in -->
+                    <li th:if="${#request.userPrincipal}" class="nav-item">
+                      <span class="nav-link">Welcome, <span th:text="${#request.userPrincipal.principal.firstName}"></span></span>
+                    </li>
+                    <li th:if="${#request.userPrincipal}" class="nav-item">
+                      <form th:action="@{/logout}" method="post" style="display:inline;">
+                          <input type="submit" value="Sign Out" class="btn btn-link nav-link" style="padding: 0;"/>
+                      </form>
+                    </li>
+  
+  
+  
+              </ul>
+            </nav>
+          </div>
+  
+            <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
+          </div>
+        </div>
+      </header>
+
+    <!-- New container for horizontal tabs -->
+    <div class="container">
+        <div class="d-flex carousel-nav">
+            <a href="#" class="nav-tab active">First Tab</a>
+            <a href="#" class="nav-tab">Second Tab</a>
+            <a href="#" class="nav-tab">Third Tab</a>
+        </div>
+    </div>
+  
+    <!-- Add a new div with a container, row, and column to center the text -->
+    <div class="container" style="height: 100vh;">
+      <div class="row align-items-center h-100">
+        <div class="col-12 text-center">
+          <!-- Paste the carousel code here -->
+            <div class="content">
+                <div class="container" style="height: 100vh; margin-top: 150px;">
+                   
+                    <div class="owl-carousel owl-1">
+                        <!-- First tab -->
+                        <div class="media-29101 w-100">
+                          <div class="img">
+                            <img src="images/purpose-context.jpg" alt="Image" class="img-fluid">
+                          </div>
+                          <div class="text">
+                              <a class="category d-block mb-4" href="#">Purpose Context Map &mdash; First Tab</a>
+                              <h2><a href="#">Our purpose and where we come in</a></h2>
+                              <br>
+                              <p>Given that as of now, EVs do not yet own the majority of the automobile market, the specificity of the market our company is trying to target can be primarily categorized into individual categories on which opportunity space can be projected. Dividing this market into segments, we can identify factors such as location, landscape, and types of customers; with regard to location, we have identified key market segments in the Midwest, Northeast, West, and South regions of the United States.</p>
+                              <br>
+                              <p>For landscape, we are focusing on primary areas in which we see these electric charger stations being implemented, like cities, rural areas, and suburban communities. To further narrow down our opportunity space we have divided customers into the following groups, long-distance travelers, short-distance travelers, families, and individuals. Through mixing and matching these different contexts and identifying areas of the market that have not yet been exploited, we hope to gain insight into the current market competition for EV charger stations. </p>
+                            </div> <!-- .item -->
+                          </div>
+                          <!-- Second tab -->
+                          <div class="media-29101 w-100">
+                            <div class="img">
+                              <img src="images/top-down-analysis.jpg" alt="Image" class="img-fluid">
+                            </div>
+                            <div class="text">
+                              <a class="category d-block mb-4" href="#">Top Down Analysis &mdash; Second Tab</a>
+                              <h2><a href="#">Assessing our target market and estimating demand at Texas</a></h2>
+                              <br>
+                              <p>Texas currently has a gas infrastructure in place; however, the demand for change to accommodate the rise of EVs on the road has become more prevalent. Currently there are 11,388 gas stations implemented in Texas and about 2,000 electric chargers, indicating a severe lack of EV infrastructure. Our team plans to address this need by constructing a network of multiple charging stations between the three Texan cities.</p>
+                              <br>
+                              <p>Another data point to note is the cost of gas in comparison to electricity. For example, “a 2018 study from the University of Michigan's Transportation Research Institute found the average cost to operate an EV in the U.S. was $485 per year compared with a gasoline-powered vehicle at $1,117(LaReau, 2021)” Given a total number of 11,388 gas stations in Texas (txdmv 2019) and that each gas station consumed an average of 13,481 trillion Btu (2020), by dividing the total consumption by gas stations in Texas we get average consumption per gas station.</p>
+                              <br>
+                              <p>After converting Btu into gallon units (see figure 1) we would then be able to obtain a value of 10,293,825.69 gallons per gas station. Multiplying this by 33.7 kWh per gallon then multiplying it by the ratio of EVs over total vehicles in Texas would give total electric car consumption in kWh units; and by assuming that EVs travel 2.9 miles per kWh (forbes 2022) we are then able to acquire total number of miles traveled by EVs per year in Texas. Converting this into days would give the statistic of 10135.33 miles traveled per day by EV users.</p>
+                          </div>
+
+                          
+                          </div> <!-- .item -->
+                          <!-- Third tab -->
+                          <div class="media-29101 w-100">
+                            <div class="img">
+                              <img src="images/tesla-supercharger-ports-map.jpg" alt="Image" class="img-fluid">
+                            </div>
+                            <div class="text">
+                              <a class="category d-block mb-4" href="#">Distribution of Current Superchargers &mdash; Third Tab</a>
+                              <h2><a href="#">Current Market and the distribution of chargers in the U.S.</a></h2>
+                              <p>Looking at the current market, Texas’s limited charging infrastructure offers a prime emerging market to start our company. By assuming that the total number of miles traveled by EVS is proportional to gas consuming vehicles it was determined from a top-down approach that roughly 10,135 EV miles per day were traveled. When applying the bottom-up approach, however, it was calculated that nearly 3 million EV miles were traveled per day. These two assumption methods display the uncertainty associated with demand prediction, however both values confirm that Texas presents a new market opportunity.</p>
+                            </div>
+                        </div> <!-- .item -->
+                    </div>   
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+
+    <!-- add watermark -->
+    <div class="watermark">
+      by Russell Ho
+    </div>
+
+    <!-- (Keep existing script tags and type-writing animation script) -->
+    <!-- Type-writing animation -->
+    <script>
+        document.getElementById("typewriter1").textContent = "The future is now";
+        document.getElementById("typewriter2").textContent = "Welcome, to E - city";
+      
+        // Show the second animation after the first one
+        setTimeout(function() {
+          document.getElementById("typewriter1").style.display = "none";
+          document.getElementById("typewriter2").style.display = "block";
+        }, 4000);
+      </script>
+      
+     
+      <script src="js/jquery-3.3.1.min.js"></script>
+      <script src="js/popper.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <script src="js/jquery.sticky.js"></script>
+      <script src="js/main.js"></script>
+      <!-- Add the necessary carousel script tags -->
+      <script src="js/owl.carousel.min.js"></script>
+    <!-- Script for carousel initalization -->
+      <script>
+        $(document).ready(function() {
+          // Carousel initialization
+          var owl = $('.owl-carousel');
+          owl.owlCarousel({
+            items: 1,
+            loop: false,
+            margin: 10,
+            autoplay: false,    //set autoplay to false
+            // autoplayTimeout: 3000,
+            // autoplayHoverPause: true
+          });
+          
+            // Set initial active carousel item
+        owl.trigger('to.owl.carousel', [0]);
+
+          // Carousel navigation
+          $('.carousel-nav .nav-tab').click(function() {
+            var index = $(this).index();
+            $('.carousel-nav .nav-tab').removeClass('active'); // Remove active class from all tabs
+            $(this).addClass('active'); // Add active class to the clicked tab
+            owl.trigger('to.owl.carousel', [index]);
+            return false;
+          });
+        });
+      </script>
+      
+  </body>
+</html>
